@@ -5,9 +5,9 @@ language: en
 # main menu navigation
 menu:
   首页: /
-  关于: /about
-  归档: /archives
-  标签: /tags
+  文章列表: /
+  关于我们: /about
+  联系我们: /contact
 
 # Miscelaneous
 favicon: /favicon.ico

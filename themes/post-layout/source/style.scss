@@ -1,13 +1,14 @@
-$hover-color: #007fff;
+$hover-color: #1890ff;
 $transition: .3s color;
-$box-shadow: 0 2px 5px -2px rgba(0,0,0,.05);
+$box-shadow: 0 2px 5px -2px rgba(0, 0, 0, .05);
 $breakpoint-desktop: 1032px;
 $breakpoint-phone: 700px;
 $animation-time: 0.3s;
 
 @mixin basic {
-  max-width: 1000px;
-  padding: 0 16px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding: 0 24px;
   margin: 0 auto;
 }
 
@@ -38,7 +39,8 @@ html {
 }
 
 body {
-  font-family: "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -49,7 +51,7 @@ body {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #909090;
+  color: #fff;
 }
 
 main {
