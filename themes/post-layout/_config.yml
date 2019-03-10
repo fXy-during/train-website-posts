@@ -4,7 +4,7 @@ language: en
 
 # main menu navigation
 menu:
-  首页: /
+  首页: ../
   文章列表: /
   关于我们: /about
   联系我们: /contact
