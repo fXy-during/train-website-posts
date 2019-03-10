@@ -9,6 +9,17 @@ menu:
   关于我们: /about
   联系我们: /contact
 
+
+
+search: false
+# avatar: http://olnzpdi2u.bkt.clouddn.com/avatar.jpg
+aside-description: aside-description
+
+links:
+  百度: https://www.baidu.com/
+  谷歌: https://www.google.com/
+  知乎: https://www.zhihu.com/
+
 # Miscelaneous
 favicon: /favicon.ico
 

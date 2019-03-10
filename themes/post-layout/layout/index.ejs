@@ -1,7 +1,3 @@
----
-title: 文章列表
----
-
 <main id='index'>
   <div class="posts-list">
     <% page.posts.forEach(post => {%>
@@ -56,10 +52,10 @@ title: 文章列表
     <%})%>
   </div>
   <aside>
-    <% if(config.search) { %>
+    <% if(theme.search) { %>
     <div class="search">
       <div class="content">
-        <form action="//www.google.com/search"
+        <form action="//www.baidu.com/"
           target="_blank"
           class="search-form">
           <input type="text"
@@ -68,19 +64,19 @@ title: 文章列表
             placeholder=<%=__('search')%>>
           <input type="hidden"
             name='sitesearch'
-            value="<%- config.url %>">
+            value="<%- theme.url %>">
         </form>
       </div>
     </div>
     <% } %>
-    <% if(config.avatar) { %>
+    <% if(theme.avatar) { %>
     <div class="avatar">
-      <img src="<%- config.avatar %>"
+      <img src="<%- theme.avatar %>"
         alt="avatar">
-      <% if(config['aside-description']) { %>
+      <% if(theme['aside-description']) { %>
       <div class="content">
         <span>
-          <%- config['aside-description'] %></span>
+          <%- theme['aside-description'] %></span>
       </div>
       <% } %>
     </div>
@@ -89,6 +85,7 @@ title: 文章列表
     <div class="categories">
       <h1>
         <%= __('categories') %>
+        <!-- 分类 -->
       </h1>
       <div class="content">
         <%- list_categories({
@@ -97,14 +94,15 @@ title: 文章列表
       </div>
     </div>
     <% } %>
-    <% if(config.links) { %>
+    <% if(theme.links) { %>
     <div class="links">
       <h1>
         <%= __('blogroll') %>
+        <!-- 友情链接 -->
       </h1>
       <div class="content">
-        <% for(let i in config.links) { %>
-        <a href="<%- config.links[i] %>"
+        <% for(let i in theme.links) { %>
+        <a href="<%- theme.links[i] %>"
           target="_blank">
           <%- i %></a>
         <% } %>
