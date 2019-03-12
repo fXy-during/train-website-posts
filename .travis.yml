@@ -12,6 +12,7 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - git config user.name $GIT_USERNAME
 - git config user.mail $GIT_EMAIL
+- echo -e "Host $TARGET_IP StrictHostKeyChecking no" >> ~/.ssh/config
 install:
 - true
 script:
