@@ -19,6 +19,8 @@ script:
 - true
 after_success:
 - ls -al ~/.ssh
+- cat  ~/.ssh/config
 - chmod 600 ~/.ssh/id_rsa
+- ssh root@$TARGET_IP -o StrictHostKeyChecking=no 'exit 0'
 - ssh root@$TARGET_IP -o StrictHostKeyChecking=no  'cd /www/posts && git pull origin
   master && hexo clean && hexo g && exit 0'
