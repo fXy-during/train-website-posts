@@ -13,14 +13,18 @@ before_install:
 - git config user.name $GIT_USERNAME
 - git config user.mail $GIT_EMAIL
 - echo -e "Host $TARGET_IP StrictHostKeyChecking no" >> ~/.ssh/config
+- npm install -g cnpm --registry=https://registry.npm.taobao.org
+- cnpm install hexo-cli
 install:
-- true
+- cnpm install
 script:
-- true
+- hexo g
 after_success:
 - ls -al ~/.ssh
-- cat  ~/.ssh/config
 - chmod 600 ~/.ssh/id_rsa
+- tar -zcf public.tar.gz ./public
 - ssh root@$TARGET_IP -o StrictHostKeyChecking=no 'exit 0'
-- ssh root@$TARGET_IP -o StrictHostKeyChecking=no  'cd /www/posts && git pull origin
-  master && hexo clean && hexo g && exit 0'
+- scp public.tar.gz root@$TARGET_IP:/www/posts
+# - ssh root@$TARGET_IP -o StrictHostKeyChecking=no  'cd /www/posts && git pull origin
+#   master && hexo clean && hexo g && exit 0'
+- ssh root@$TARGET_IP -o StrictHostKeyChecking=no  'cd /www/posts && hexo clean && tar -xzf public.tar.gz && rm -rf public.tar.gz  && exit 0'
