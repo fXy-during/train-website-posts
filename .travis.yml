@@ -5,21 +5,19 @@ cache:
   apt: true
   directories:
   - node_modules
-
 addons:
   ssh_known_hosts: $TARGET_IP
-
 before_install:
+- openssl aes-256-cbc -K $encrypted_dde9f8ce7d8f_key -iv $encrypted_dde9f8ce7d8f_iv
+  -in id_rsa.enc -out ./id_rsa -d
 - git config user.name $GIT_USERNAME
 - git config user.mail $GIT_EMAIL
-
 install:
 - true
-
 script:
 - true
-
 after_success:
 - ls -al ~/.ssh
 - chmod 600 ~/.ssh/id_rsa
-- ssh root@$TARGET_IP -o StrictHostKeyChecking=no  'cd /www/posts && git pull origin master && hexo clean && hexo g && exit 0'
+- ssh root@$TARGET_IP -o StrictHostKeyChecking=no  'cd /www/posts && git pull origin
+  master && hexo clean && hexo g && exit 0'
